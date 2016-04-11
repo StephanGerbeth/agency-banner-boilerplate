@@ -53,6 +53,9 @@
         "src": ["./globals/**/*.{json,yaml}"]
       }
     },
+    "controllerRegistry": {
+      "file": "./src/common/js/packages.js"
+    },
     "scripts": {
       "js": {
         "main": "<%= destination %>/js/app.js"
