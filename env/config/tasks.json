@@ -209,9 +209,9 @@
       "name": "embed",
 
       "entry": {
-        "picture": "./src/js/polyfills/picture",
-        "animationFrame": "./src/js/polyfills/animationFrame",
-        "embed": "./src/js/embed"
+        "picture": "./src/common/js/polyfills/picture",
+        "animationFrame": "./src/common/js/polyfills/animationFrame",
+        "embed": "./src/common/js/embed"
       },
 
       "plugins": [{
@@ -242,7 +242,7 @@
         }
       },
       "files": {
-        "src": ["./src/js/polyfills/animationFrame", "./src/js/polyfills/picture", "./src/js/embed"],
+        "src": ["./src/common/js/polyfills/animationFrame", "./src/common/js/polyfills/picture", "./src/common/js/embed"],
         "dest": "<%= destination %>/js/embed/[name].js",
         "library": ["[name]"]
       }
