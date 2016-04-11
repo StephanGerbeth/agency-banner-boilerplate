@@ -44,7 +44,7 @@
         },
         "webpack": {
           "entry": {
-              "app": "./src/js/main"
+              "app": "./src/common/js/main"
           },
           "plugins": [
               {"script": "agency-environment/lib/webpack/plugins/provide", "config": {

@@ -58,7 +58,7 @@
         "main": "<%= destination %>/js/app.js"
       },
       "css": {
-        "main": "css/style.css"
+        "main": "./style.css"
       }
     },
     "subtasks": [{
@@ -148,7 +148,7 @@
       "name": "app",
       "hotReplacement": true,
       "entry": {
-        "app": "./src/js/main"
+        "app": "./src/common/js/main"
       },
       "plugins": [{
         "script": "agency-environment/lib/webpack/plugins/provide",
@@ -198,7 +198,7 @@
         }
       },
       "files": {
-        "src": ["./src/js/main.js"],
+        "src": ["./src/common/js/main.js"],
         "dest": "<%= destination %>/js/[name].js",
         "library": ["[name]"]
       }
