@@ -11,7 +11,7 @@
     "subtasks": [{
       "name": "default",
       "files": {
-        "src": ["src/**/assets/**/*.{ttf,woff,eot,svg,ico,png,jpg,gif}", "!src/common/**/*"],
+        "src": ["src/**/assets/**/*.{svg,ico,png,jpg,gif}", "!src/common/**/*", "!src/**/assets/fonts/**/*"],
         "dest": "<%= destination %>"
       }
     }, {
@@ -22,11 +22,20 @@
       }
     }],
     "watch": [{
-      "src": ["src/**/assets/**/*.{ttf,woff,eot,svg,ico,png,jpg,gif}", "!src/common/**/*"],
+      "src": ["src/**/assets/**/*.{svg,ico,png,jpg,gif}", "!src/common/**/*", "!src/**/assets/fonts/**/*"],
       "tasks": ["default"]
     }, {
       "src": ["src/**/external/**/*"],
       "tasks": ["external"]
+    }]
+  },
+  "fontmin": {
+    "subtasks": [{
+      "name": "default",
+      "files": {
+        "src": ["src/**/assets/fonts/**/glyphs.txt"],
+        "dest": "<%= destination %>"
+      }
     }]
   },
   "handlebars": {
@@ -91,7 +100,7 @@
   "postcss": {
     "subtasks": [{
       "name": "default",
-      "sourcemap": true,
+      "sourcemap": false,
       "plugins": [{
         "name": "postcss-import",
         "params": []
@@ -245,6 +254,16 @@
         "src": ["./src/common/js/polyfills/animationFrame", "./src/common/js/polyfills/picture", "./src/common/js/embed"],
         "dest": "<%= destination %>/js/embed/[name].js",
         "library": ["[name]"]
+      }
+    }]
+  },
+  "zipcompress" : {
+    "subtasks": [{
+      "name": "default",
+      "excludes" : ["!<%= destination %>/**/fonts/**/*.{css,svg,woff2}"],
+      "files": {
+        "src" : ["<%= destination %>/*", "!<%= destination %>/*.*"],
+        "dest": "<%= destination %>"
       }
     }]
   }

@@ -1,37 +1,6 @@
-@import "../../../generated/pcss/custom-media-variables.pcss";
-@import "./partials/layouts.pcss";
-
-@import "./fonts.pcss";
-@import "./partials.pcss";
-
-h2 {
-  margin: 0;
-}
-
-p {
-  font-family: "AmaticSC";
-}
-
-div{
-
-  h1 {
-    color: red;
-    transform: scaleX(1);
-  }
-}
-
-@media (--screen-xs) {
-  h1 {
-    color: brown;
-  }
-}
-
-@media (--screen-sm) {
-  h1 {
-    color: green;
-  }
-}
-
-body {
-
+@import "../../../node_modules/normalize-css/normalize.css";
+*, :before, :after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

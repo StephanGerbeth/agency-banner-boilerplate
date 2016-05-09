@@ -1,0 +1,11 @@
+{
+  "title": "crossmedia - 728x90",
+  "head": {
+    "fonts": [{
+      "name": "open-sans",
+      "path": "assets/fonts/open-sans/Regular/OpenSans-Regular",
+      "style": "normal",
+      "weight": "400"
+    }]
+  }
+}

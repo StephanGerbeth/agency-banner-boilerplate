@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="no-js ie ie6 lte9 lte8 lte7 partial loading" data-partial="layouts/banner" lang="{{language}}"> <![endif]-->
+<!--[if IE 7]>     <html class="no-js ie ie7 lte9 lte8 lte7 partial loading" data-partial="layouts/banner" lang="{{language}}"> <![endif]-->
+<!--[if IE 8]>     <html class="no-js ie ie8 lte9 lte8 partial loading" data-partial="layouts/banner" lang="{{language}}"> <![endif]-->
+<!--[if IE 9]>     <html class="no-js ie ie9 lte9 partial loading" data-partial="layouts/banner" lang="{{language}}"> <![endif]-->
+<!--[if gt IE 9]>  <html class="no-js ie gt-ie9 partial loading" data-partial="layouts/banner" lang="{{language}}"><![endif]-->
+<!--[if !IE]><!--> <html class="no-js partial loading" data-partial="layouts/banner" lang="{{default.language}}"><!--<![endif]-->
+<head>
+  {{#if options.server.weinre}}
+  <script type="text/javascript">
+      if(/(weinre)/g.test(location.search)) {
+        var host = (location.host || 'localhost').split(':')[0];
+        document.write('<script src="//' + host + ':{{options.server.weinre.port}}/target/target-script-min.js#anonymous"></'+'script>');
+      }
+  </script>
+  {{/if}}
+  {{#if options.server.livereload}}
+  <script type="text/javascript">
+      if('WebSocket' in window || 'MozWebSocket' in window) {
+        var host = (location.host || 'localhost').split(':')[0];
+        document.write('<script src="//' + host + ':{{options.server.livereload.port}}/livereload.js?snipver=1"></' + 'script>');
+      }
+  </script>
+  {{/if}}
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="{{{globals.head.meta.viewport}}}">
+
+  <title>{{title}}</title>
+
+  <style type="text/css">
+    {{#each head.fonts}}
+      @font-face {
+        font-family: '{{name}}';
+        src: url('./{{{this.path}}}.eot');
+        src: url('./{{this.path}}.eot?#iefix') format('embedded-opentype'),
+        url('./{{this.path}}.woff') format('woff'),
+        url('./{{this.path}}.ttf') format('truetype');
+        font-style: {{style}};
+        font-weight: {{weight}};
+      }
+    {{/each}}
+  </style>
+  <script type="text/javascript">
+    window.customFonts = [
+      {{#each head.fonts}}
+        {
+          name: '{{name}}',
+          props: {
+            style: '{{style}}',
+            weight: '{{weight}}'
+          },
+          testString: '{{testString}}'
+        },
+      {{/each}}
+    ]
+  </script>
+
+  <link type="text/css" rel="stylesheet" href="{{options.scripts.css.main}}" media="screen"/>
+
+  {{#unless options.server.dev}}
+    <script type="text/javascript">
+      {{{raw options.scripts.js.main}}}
+    </script>
+  {{/unless}}
+
+  {{!-- Adform Script --}}
+  <script type="text/javascript">
+		document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+  </script>
+
+</head>
+<body>
+
+  <a href="javascript:clickIt();" id="banner">
+    {% body %}
+  </a>
+
+  <script type="text/javascript">
+
+    var banner = document.getElementById('banner');
+
+    banner.style.width = dhtml.width + 'px';
+    banner.style.height = dhtml.height + 'px';
+
+    var clickTAGvalue = dhtml.getVar('clickTAG', 'http://www.adform.com'); //dhtml.getVar() gets clickTAG variable from Adform, if it is not defined (e.g. banner is being tested locally) it will fallback to example.com
+    var landingpagetarget = dhtml.getVar('landingPageTarget', '_blank'); //same as above - landingPageTarget from Adform or falls back to _blank
+
+    function clickIt() {
+    	window.open(clickTAGvalue,landingpagetarget);
+    }
+
+  </script>
+
+  {{#if options.server.websocket}}
+    <script src="http://localhost:8050/socket.io/socket.io.js" type="text/javascript"></script>
+  {{/if}}
+  {{#if options.server.webpack}}
+    {{{mixin "common/breakpoint"}}}
+    <script>
+      var host = (location.host || 'localhost').split(':')[0];
+      document.write('<script type="text/javascript" src="//' + host +':{{options.server.webpack.port}}/{{options.scripts.js.main}}"></' + 'script>');
+    </script>
+  {{/if}}
+
+</body>
+</html>

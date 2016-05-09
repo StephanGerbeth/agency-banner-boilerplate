@@ -3,6 +3,7 @@
   "options": [
     "setClasses",
     "addTest",
+    "testProp",
     "prefixedCSS"
   ],
   "feature-detects": [

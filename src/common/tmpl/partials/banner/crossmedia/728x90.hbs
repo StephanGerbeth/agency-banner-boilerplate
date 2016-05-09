@@ -1,0 +1,17 @@
+---
+background-image: "http://dummyimage.com/728x90/000/ffffff?text=728x90"
+fallback-image: "http://dummyimage.com/728x90/000/ffffff?text=728x90%20-%20Fallback"
+---
+<span class="partial" data-partial="banner/728x90">
+  {{#block "background"}}
+      <!--[if lt IE 9]>
+    <img src="{{{fallback-image}}}" class="fallback" />
+    <!--<![endif]-->
+      <!--[if gt IE 8 | !IE]><!-->
+    <img src="{{{background-image}}}" class="background" />
+      <!--<![endif]-->
+  {{/block}}
+  {{#block "foreground"}}
+      Banner Foreground
+  {{/block}}
+</span>

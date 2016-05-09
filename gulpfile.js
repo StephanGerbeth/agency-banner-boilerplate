@@ -11,9 +11,9 @@ gulp.task('default', ['watch', 'server']);
 
 gulp.task('run', function(callback) {
     if(!options.env || options.env === 'development') {
-        runSequence('prebuild', 'default', callback);
+        runSequence('prebuild-banner', 'default', callback);
     } else {
-        runSequence('build', 'server', callback);
+        runSequence('build-banner', 'server', callback);
     }
 });
 
