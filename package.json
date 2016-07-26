@@ -45,7 +45,7 @@
 		"url": "^0.11.0"
 	},
 	"devDependencies": {
-		"agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git#version/2.0",
+		"agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git",
 		"agency-server": "git+https://git@github.com/StephanGerbeth/agency-server.git",
 		"fb": "^1.0.2",
 		"gulp-zip": "^3.2.0",
