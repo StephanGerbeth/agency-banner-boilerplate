@@ -269,7 +269,7 @@
       "name": "banner",
       "excludes": ["!<%= destination %>/**/fonts/**/*.{css,svg,woff2}", "!<%= destination %>/**/*.md"],
       "files": {
-        "src": ["<%= destination %>/*", "!<%= destination %>/*.*"],
+        "src": ["<%= destination %>/*", "!<%= destination %>/*.*", "!<%= destination %>/{common,js,pattern,partials}"],
         "dest": "<%= destination %>/compressed"
       }
     }]
