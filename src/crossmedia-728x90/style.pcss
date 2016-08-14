@@ -26,7 +26,7 @@ $duration: 0.7s;
     width: 60px;
     opacity: 0;
   }
-  .state-repeat, .state-reset {
+  .js-state-repeat, .js-state-reset {
     opacity: 1;
     position: static;
   }
@@ -69,13 +69,13 @@ $duration: 0.7s;
     .logo {
       opacity: 1;
     }
-    .state-reset {
+    .js-state-reset {
       transition: opacity $duration calc($delay * 2) linear;
       opacity: 0;
     }
   }
   .js-banner-state-reset & {
-    .state-repeat {
+    .js-state-repeat {
       transition: opacity $duration $delay linear;
       opacity: 0;
     }

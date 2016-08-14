@@ -67,11 +67,11 @@ function registerStatsFallback(stats) {
 
 function createState(index, cb) {
     console.log('.state-' + index);
-    var state = document.querySelector('.state-' + index);
+    var state = document.querySelector('.js-state-' + index);
     var onTransition = function(e) {
         if (e.target === state) {
             state.removeEventListener(transitionProperty, onTransition);
-            console.log('state-' + index);
+            console.log('js-state-' + index);
             if (typeof cb === 'function') {
                 cb();
             } else {
