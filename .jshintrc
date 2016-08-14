@@ -92,6 +92,7 @@
     "globals"       : {
         "FB": false,
         "gapi": false,
-        "$": false
+        "$": false,
+        "Modernizr": false
     }        // additional predefined global variables
 }

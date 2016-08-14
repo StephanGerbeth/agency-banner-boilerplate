@@ -12,11 +12,14 @@ logo-image: "./assets/img/logo.png"
 {{#mixin "banner/crossmedia/728x90" background-image=background-image fallback-image=fallback-image}}
   {{#content "foreground"}}
       <!--[if gt IE 8 | !IE]><!-->
-      <span class="headline-1 state-1">{{{../headline-1}}}</span>
-      <span class="headline-2 state-2">{{{../headline-2}}}</span>
-      <span class="headline-3 state-3">{{{../headline-3}}}</span>
-      <span class="headline-4 state-4">{{{../headline-4}}}</span>
-      <img class="logo" src="{{{../logo-image}}}"/>
+      <span class="state-reset">
+        <span class="headline-1 state-1">{{{../headline-1}}}</span>
+        <span class="headline-2 state-2">{{{../headline-2}}}</span>
+        <span class="headline-3 state-3">{{{../headline-3}}}</span>
+        <span class="headline-4 state-4">{{{../headline-4}}}</span>
+        <img class="logo" src="{{{../logo-image}}}"/>
+      </span>
+      <span class="state-repeat"></span>
       <!--<![endif]-->
   {{/content}}
 {{/mixin}}

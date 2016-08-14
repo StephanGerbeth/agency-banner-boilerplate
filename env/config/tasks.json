@@ -11,7 +11,7 @@
     "subtasks": [{
       "name": "default",
       "files": {
-        "src": ["src/**/assets/**/*.{svg,ico,png,jpg,gif}", "!src/common/**/*", "!src/**/assets/fonts/**/*", "src/**/manifest.js", "src/**/fallback.jpg"],
+        "src": ["src/**/assets/**/*.{svg,ico,png,jpg,gif}", "!src/common/**/*", "!src/**/assets/fonts/**/*", "src/**/manifest.{js,json}", "src/**/fallback.jpg"],
         "dest": "<%= destination %>"
       }
     }, {
@@ -267,7 +267,7 @@
       }
     }, {
       "name": "banner",
-      "excludes": ["!<%= destination %>/**/fonts/**/*.{css,svg,woff2}"],
+      "excludes": ["!<%= destination %>/**/fonts/**/*.{css,svg,woff2}", "!<%= destination %>/**/*.md"],
       "files": {
         "src": ["<%= destination %>/*", "!<%= destination %>/*.*"],
         "dest": "<%= destination %>/compressed"
