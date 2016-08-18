@@ -10,13 +10,13 @@ logo-image: "./assets/img/logo.png"
 
 {{#mixin "banner/flashtalking/728x90" background-image=background-image fallback-image=fallback-image}}
   {{#content "foreground"}}
-  <span class="state-reset">
-    <span class="headline-1 state-1">{{{../headline-1}}}</span>
-    <span class="headline-2 state-2">{{{../headline-2}}}</span>
-    <span class="headline-3 state-3">{{{../headline-3}}}</span>
-    <span class="headline-4 state-4">{{{../headline-4}}}</span>
+  <span class="js-state-reset">
+    <span class="headline-1 js-state-1">{{{../headline-1}}}</span>
+    <span class="headline-2 js-state-2">{{{../headline-2}}}</span>
+    <span class="headline-3 js-state-3">{{{../headline-3}}}</span>
+    <span class="headline-4 js-state-4">{{{../headline-4}}}</span>
     <img class="logo" src="{{{../logo-image}}}"/>
   </span>
-  <span class="state-repeat"></span>
+  <span class="js-state-repeat"></span>
   {{/content}}
 {{/mixin}}
