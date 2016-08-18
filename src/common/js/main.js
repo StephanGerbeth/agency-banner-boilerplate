@@ -49,18 +49,31 @@ global.onload = function() {
 };
 
 
-function createStateFallback(durations, stats) {
-    var duration = durations.pop();
-    setTimeout(function() {
-        if (durations.length) {
-            document.body.className += ' js-banner-state-' + stats;
-            stats++;
-            createStateFallback(durations, stats);
+function createStateFallback(durations, stats, lastDuration) {
+    console.log('durations',durations.length);
+    if (durations.length-1 > 0) {
+        var duration = durations.pop();
+        setTimeout(function() {
+            if (durations.length) {
+                document.body.className += ' js-banner-state-' + stats;
+                stats++;
+                createStateFallback(durations, stats, duration);
+            }
+        }, duration);
+    } else {
+        if (document.querySelector('.js-state-repeat')) {
+            setTimeout(function() {
+                document.body.className = ' js-banner-init';
+                console.log(lastDuration);
+                registerStatsFallback(defaultStats);
+            }, lastDuration);
         }
-    }, duration);
+    }
+
 }
 
 function registerStatsFallback(stats) {
+stats = [].concat(defaultStats);
     stats = stats.reverse();
     createStateFallback(stats, 1);
 }
@@ -87,6 +100,8 @@ function createState(index, cb) {
 }
 
 function registerStats(stats) {
+
+stats = [].concat(defaultStats);
 
     for (var i = 1; i <= stats.length; i++) {
         createState(i);
